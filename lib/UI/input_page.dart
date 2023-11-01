@@ -10,10 +10,7 @@ const inActiveCardColor = Color(0xFF111328);
 
 //declear enum
 
-enum Gender{
-  male,
-  female,
-}
+enum Gender { male, female, none }
 
 class InputPage extends StatefulWidget {
   @override
@@ -21,23 +18,8 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  Color male = inActiveCardColor;
-  Color female = inActiveCardColor;
-
-  
-  void updateColor(Gender gender) {
-    //for male
-    if (gender == Gender.male) {
-      male = activeCardColor;
-      female = inActiveCardColor;
-    }
-
-    //for female
-    if (gender == Gender.female) {
-      female = activeCardColor;
-      male = inActiveCardColor;
-    }
-  }
+  Color selecetdColor = inActiveCardColor;
+  Gender selecetedGender = Gender.none;
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +29,7 @@ class _InputPageState extends State<InputPage> {
       ),
       body: Column(
         children: [
+          //Gender section
           Expanded(
               child: Row(
             children: [
@@ -54,26 +37,28 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                 onTap: () {
                   setState(() {
-                    updateColor(Gender.male);
+                    selecetedGender = Gender.male;
                   });
                 },
                 child: ReuseableCrad(
-                  color: male,
+                  color: selecetedGender == Gender.male?activeCardColor:inActiveCardColor,
                   cardChild: InputWidget(
                       icon: FontAwesomeIcons.mars,
                       color: Colors.white,
                       label: "MALE"),
                 ),
               )),
+
+              //=============
               Expanded(
                   child: GestureDetector(
                 onTap: () {
                   setState(() {
-                    updateColor(Gender.female);
+                    selecetedGender = Gender.female;
                   });
                 },
                 child: ReuseableCrad(
-                  color: female,
+                  color: selecetedGender == Gender.female?activeCardColor:inActiveCardColor,
                   cardChild: InputWidget(
                       icon: FontAwesomeIcons.venus,
                       color: Colors.white,
@@ -82,6 +67,8 @@ class _InputPageState extends State<InputPage> {
               )),
             ],
           )),
+
+          //======================
           Expanded(
               child: ReuseableCrad(
             color: activeCardColor,
@@ -99,6 +86,8 @@ class _InputPageState extends State<InputPage> {
               )),
             ],
           )),
+
+          //calculate button
           Container(
             width: double.infinity,
             height: bottomContainerHeight,
