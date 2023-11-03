@@ -12,7 +12,7 @@ class ReuseableCrad extends StatelessWidget {
       child: Container(
         margin: EdgeInsets.all(15.0),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(5),
           color: color,
         ),
         child: cardChild,

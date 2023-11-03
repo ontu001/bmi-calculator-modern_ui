@@ -1,3 +1,4 @@
+import 'package:bmi_calculator_starter/Constant%20property/constant.dart';
 import 'package:flutter/material.dart';
 
 class InputWidget extends StatelessWidget {
@@ -14,8 +15,8 @@ class InputWidget extends StatelessWidget {
         color: color,
         size: 80.0,
         ),
-        SizedBox(height: 10.0,),
-        Text(label,style: TextStyle(fontSize: 20),)
+        SizedBox(height: 14.0,),
+        Text(label,style: klavelTextColor,)
       ],
     );
   }
