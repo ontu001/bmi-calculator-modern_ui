@@ -1,4 +1,5 @@
 import 'package:bmi_calculator_starter/Constant%20property/constant.dart';
+import 'package:bmi_calculator_starter/widgets/height_slider.dart';
 import 'package:bmi_calculator_starter/widgets/input_widgets.dart';
 import 'package:bmi_calculator_starter/widgets/reusable_card.dart';
 import 'package:flutter/material.dart';
@@ -98,14 +99,9 @@ class _InputPageState extends State<InputPage> {
                   height: 45,
                 ),
                 //slider=======
-                Slider(
-                    value: height.toDouble(),
-                    min: 120,
-                    max: 220,
-                    activeColor: Color(0xFFEB1555),
-                    inactiveColor: Colors.grey,
-                    thumbColor: Color(0xFFEB1555),
-                    onChanged: (double newValue) {
+                heightSlider(
+                    height: height,
+                    onChanged: (newValue) {
                       setState(() {
                         height = newValue.round();
                       });
