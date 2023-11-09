@@ -2,6 +2,7 @@ import 'package:bmi_calculator_starter/Constant%20property/constant.dart';
 import 'package:bmi_calculator_starter/widgets/height_slider.dart';
 import 'package:bmi_calculator_starter/widgets/input_widgets.dart';
 import 'package:bmi_calculator_starter/widgets/reusable_card.dart';
+import 'package:bmi_calculator_starter/widgets/round__icon_-button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -18,6 +19,8 @@ class _InputPageState extends State<InputPage> {
   Color selecetdColor = kinActiveCardColor;
   Gender selecetedGender = Gender.none;
   int height = 180;
+  int weight = 65;
+  int age = 19;
 
   @override
   Widget build(BuildContext context) {
@@ -112,13 +115,85 @@ class _InputPageState extends State<InputPage> {
           Expanded(
               child: Row(
             children: [
+              //weight===========================
+              Expanded(
+                  child: ReuseableCrad(
+                      color: kactiveCardColor,
+                      cardChild: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "WEIGHT",
+                            style: klavelTextColor,
+                          ),
+                          Text(
+                            '$weight',
+                            style: knumTextColor,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              roundIconButton(
+                                  weight: weight,
+                                  icon: FontAwesomeIcons.minus,
+                                  onPressed: () {
+                                    setState(() {
+                                      weight--;
+                                    });
+                                  }),
+                              roundIconButton(
+                                  weight: weight,
+                                  icon: FontAwesomeIcons.plus,
+                                  onPressed: () {
+                                    setState(() {
+                                      weight++;
+                                    });
+                                  }),
+                            ],
+                          ),
+                        ],
+                      ),
+                      ),
+                      ),
+
+              //age===================
               Expanded(
                   child: ReuseableCrad(
                 color: kactiveCardColor,
-              )),
-              Expanded(
-                  child: ReuseableCrad(
-                color: kactiveCardColor,
+                 cardChild: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "AGE",
+                            style: klavelTextColor,
+                          ),
+                          Text(
+                            '$age',
+                            style: knumTextColor,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              roundIconButton(
+                                  weight: weight,
+                                  icon: FontAwesomeIcons.minus,
+                                  onPressed: () {
+                                    setState(() {
+                                      age--;
+                                    });
+                                  }),
+                              roundIconButton(
+                                  weight: weight,
+                                  icon: FontAwesomeIcons.plus,
+                                  onPressed: () {
+                                    setState(() {
+                                      age++;
+                                    });
+                                  }),
+                            ],
+                          ),
+                        ],
+                      ),
               )),
             ],
           )),
