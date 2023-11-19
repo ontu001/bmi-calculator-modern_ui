@@ -11,7 +11,7 @@ class calculateButton extends StatelessWidget {
       onTap: ontap,
       child: Container(
         margin: EdgeInsets.only(top: 10.0),
-        padding: EdgeInsets.only(top: 20.0),
+        
         width: double.infinity,
         height: kbottomContainerHeight,
         color: kbottomContainerColor,

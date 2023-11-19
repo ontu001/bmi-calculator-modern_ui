@@ -5,11 +5,21 @@ import 'package:flutter/material.dart';
 
 // ignore: camel_case_types
 class resultPage extends StatelessWidget {
+  //instance for getting data from the user input ========
   final String bmi;
   final String result;
   final String suggestion;
+  final int height;
+  final int weight;
+  final int age;
 
-  const resultPage({super.key, required this.bmi, required this.result, required this.suggestion});
+  const resultPage(
+      {super.key,
+      required this.bmi,
+      required this.result,
+      required this.suggestion,
+      required this.height,
+      required this.weight, required this.age});
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +39,14 @@ class resultPage extends StatelessWidget {
               ),
             ),
           ),
+
+          //informatioion conatiner=======
           Expanded(
               flex: 5,
               child: ReuseableCrad(
                 color: kactiveCardColor,
                 cardChild: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
@@ -42,17 +54,33 @@ class resultPage extends StatelessWidget {
                       style: kResult,
                     ),
                     Text(
+                      "The Normal BMI range is 18.5—24.9",
+                      style: TextStyle(fontSize: 15),
+                    ),
+                    SizedBox(
+                      height: 250,
+                    ),
+                    Text(
                       bmi,
                       style: knumTextColor,
                     ),
-                    Text(
-                      suggestion,
-                      textAlign: TextAlign.center,
-                      style: klavelTextColor,
-                    )
+                    Text("Your height is $height cm and Weight is $weight kg Your age is $age"),
+                    SizedBox(
+                      height: 160,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 15, right: 15),
+                      child: Text(
+                        suggestion,
+                        textAlign: TextAlign.center,
+                        style: klavelTextColor,
+                      ),
+                    ),
                   ],
                 ),
               )),
+
+          //recaklculate button
           calculateButton(
             txt: "RECALCULTE YOUR BMI",
             ontap: () {
