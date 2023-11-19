@@ -5,7 +5,11 @@ import 'package:flutter/material.dart';
 
 // ignore: camel_case_types
 class resultPage extends StatelessWidget {
-  const resultPage({super.key});
+  final String bmi;
+  final String result;
+  final String suggestion;
+
+  const resultPage({super.key, required this.bmi, required this.result, required this.suggestion});
 
   @override
   Widget build(BuildContext context) {
@@ -29,20 +33,20 @@ class resultPage extends StatelessWidget {
               flex: 5,
               child: ReuseableCrad(
                 color: kactiveCardColor,
-                cardChild: const Column(
+                cardChild: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      "NORMAL",
+                      result,
                       style: kResult,
                     ),
                     Text(
-                      "27",
+                      bmi,
                       style: knumTextColor,
                     ),
                     Text(
-                      "YOUR BMI IS HIGHER THAT USUAL PLEASE EAT LESS AND HEALTHEY AND DO EXERCISE",
+                      suggestion,
                       textAlign: TextAlign.center,
                       style: klavelTextColor,
                     )
