@@ -1,5 +1,6 @@
 import 'package:bmi_calculator_starter/Constant%20property/constant.dart';
 import 'package:bmi_calculator_starter/UI/result_page.dart';
+import 'package:bmi_calculator_starter/widgets/calculate_button.dart';
 import 'package:bmi_calculator_starter/widgets/height_slider.dart';
 import 'package:bmi_calculator_starter/widgets/input_widgets.dart';
 import 'package:bmi_calculator_starter/widgets/reusable_card.dart';
@@ -12,6 +13,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 enum Gender { male, female, none }
 
 class InputPage extends StatefulWidget {
+  const InputPage({super.key});
+
   @override
   State<InputPage> createState() => _InputPageState();
 }
@@ -90,7 +93,7 @@ class _InputPageState extends State<InputPage> {
                       '$height',
                       style: knumTextColor,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Text(
@@ -99,7 +102,7 @@ class _InputPageState extends State<InputPage> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 45,
                 ),
                 //slider=======
@@ -200,22 +203,13 @@ class _InputPageState extends State<InputPage> {
           )),
 
           //calculate button
-          GestureDetector(
-            onTap: () {
+          calculateButton(
+            txt: "CALCULATE YOUR BMI",
+            ontap: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => resultPage()));
             },
-            child: Container(
-              width: double.infinity,
-              height: kbottomContainerHeight,
-              color: kbottomContainerColor,
-              child: Center(
-                  child: Text(
-                "CALCULATE YOUR BMI",
-                style: kButtonColor,
-              )),
-            ),
-          ),
+          )
         ],
       ),
     );
